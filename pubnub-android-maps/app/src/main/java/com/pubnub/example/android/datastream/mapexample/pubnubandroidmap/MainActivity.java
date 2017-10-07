@@ -135,7 +135,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (MainActivity.this.mMarker != null) {
                     MainActivity.this.mMarker.setPosition(location);
                 } else {
-                    MainActivity.this.mMarker = mMap.addMarker(new MarkerOptions().position(location));
+                    MainActivity.this.mMarker = mMap.addMarker(new MarkerOptions()
+                            .position(location)
+                            .icon(BitmapDescriptorFactory.fromResource(R.mipmap.ic_car)));
                 }
 
 
