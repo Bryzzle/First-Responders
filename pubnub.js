@@ -1,9 +1,9 @@
 pn = require('pubnub');
-lat = 38.897327;
-lng = -77.011232;
-truckLat = 38.896660;
-truckLng = -77.009087;
-watson = false;
+var truckLat = 38.897327;
+var truckLng = -77.011232;
+var lat = 38.896660;
+var lng = -77.009087;
+var watson = false;
 
 step = 0;
 p = new pn({
@@ -12,16 +12,16 @@ p = new pn({
 });
 var x = setInterval(function() {
   if (step < 11){
-  	lng = lng + .0002;
+  	truckLng = truckLng + 0.0002;
   } else {
-  	lat = lat + .0002;
+  	truckLat = truckLat + 0.0002;
   }
 
   if (step < 6){
-  	truckLat = truckLat + .00005;
+  	lat = lat + 0.00005;
   }
   if (step > 13){
-  	truckLat = truckLat + .0001;
+  	lat = lat + 0.0001;
   }
   // truckLat = truckLat + .00005;
 
@@ -29,10 +29,10 @@ var x = setInterval(function() {
   return p.publish({
     channel: "maps-channel",
     message: {
-      lat: lat.toString(),
-      lng: lng.toString(),
       truckLat: truckLat.toString(),
       truckLng: truckLng.toString(),
+      lat: lat.toString(),
+      lng: lng.toString(),
       watson: watson.toString()
     }
   }, function() {
@@ -40,9 +40,9 @@ var x = setInterval(function() {
   if (step == 21){
   	// clearInterval(x);
   	step = 0;
-  	lng = -77.011232;
-  	lat = 38.897327;
-  	truckLat = 38.896666;
+  	truckLng = -77.011232;
+  	truckLat = 38.897327;
+  	lat = 38.896666;
 
   }
     return console.log(arguments);

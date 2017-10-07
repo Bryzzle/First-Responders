@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 } else {
                     MainActivity.this.truckMarker = mMap.addMarker(new MarkerOptions().position(location));
                 }
-
+//              mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
 
                 /* this is how you make a line if you want it !!!*/
 
